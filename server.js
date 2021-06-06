@@ -15,6 +15,14 @@ app.get('/', (req, res)=>{
     res.send(Pokemon);
 })
 
+//Route to Pokemon Index 
+
+app.get('/pokemon', (req, res)=>{
+    res.render('index.ejs', {
+        allPokemon: Pokemon
+        });
+    });
+
 //Listening Port 
 
 app.listen(3000);
