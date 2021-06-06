@@ -4,10 +4,17 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const methodOverride = require('method-override');
 
 // Requiring EJS 
 
 const Pokemon = require('./models/pokemon.js');
+
+//Middleware
+
+app.use(express.urlencoded({extended: false}));
+
+
 
 //Route to index 
 
