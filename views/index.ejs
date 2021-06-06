@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pokemon App</title>
+    </head>
+    <body>
+        <h1>Pokemon index page</h1>
+        <ul>
+            <% for(let i = 0; i < allpokemon.length; i++) { %>
+                <li>
+                    <a href="/pokemon/<%=i%>"><%=allpokemon[i].name %></a>
+                    <form action="/fruits/<%= i%>?_method=DELETE" METHOD="POST">
+                        <input type="submit" value="DELETE" />
+                    </form>
+                    <a href="/pokemon/<%=i%>/edit"
+                </li>
+            <% } %>
+        </ul>
+
+        <nav>
+            <a href="/pokemon/new">Create a New Pokemon</a>
+        </nav>
+    </body>
+</html>
