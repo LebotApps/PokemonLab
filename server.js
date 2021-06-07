@@ -39,10 +39,17 @@ app.get("/pokemon/new", (req, res) => {
     res.render('new.ejs');
   });
 
+  app.get('/pokemon/edit', (req, res)=>{
+    res.render('edit.ejs', {
+      Pokemon: Pokemon[req.params.indexOfPokemonArray],
+      index: req.params.indexOfPokemonArray
+    });
+  });
+
     // SHOW
     app.get('/pokemon/:indexOfPokemonArray', (req, res) => {
-      res.render('show.ejs', { //second param must be an object
-          Pokemon: Pokemon[req.params.indexOfPokemonArray] //there will be a variable available inside the ejs file called fruit, its value is fruits[req.params.indexOfFruitsArray]
+      res.render('show.ejs', { 
+        Pokemon: Pokemon[req.params.indexOfPokemonArray] 
       });
     });    
   
@@ -65,14 +72,6 @@ app.get("/pokemon/new", (req, res) => {
     fruits.splice(req.params.indexOfPokemonArray, 1);
     res.redirect('/pokemon');
   })
-  
-  // EDIT 
-  app.get('/pokemon/edit', (req, res)=>{
-    res.render('edit.ejs', {
-      Pokemon: Pokemon[req.params.indexOfPokemonArray],
-      index: req.params.indexOfPokemonArray
-    });
-  });
   
   //UPDATE
   

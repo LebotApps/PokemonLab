@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <%- include(`./partials/head.ejs`);%>
-    
-    <title>Edit Your Pokemon</title>
-
+    <title>Pokemon</title>
 <body>
-  
-  <form action="/pokemon/edit<%= index %>?_method=PUT" method="POST"></form>
-
-  <%console.log(fruit) %>
-  
   <h1>Edit Pokemon Page</h1>
-  
-    Name: <input type="text" name="name" value="<%= fruit.name %>"/><br />
+  <form action="/pokemon" method="POST">
+    Name: <input type="text" name="name" /><br />
+    attack: <input type="text" name="color" /><br />
     
-			
-			<% } %>
-		/>
-		<br/>
-    
- 
-    <input type="submit" value="Edit Fruit">
+    <input type="submit" value="Edit Pokemon">
   </form>
 </body>
 </html>
