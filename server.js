@@ -14,7 +14,11 @@ const Pokemon = require('./models/pokemon.js');
 
 app.use(express.urlencoded({extended: false}));
 
+app.use((req, res, next) =>{
+  console.log('I run all things');
+  next();
 
+});
 
 //Route to index 
 
@@ -34,26 +38,20 @@ app.get('/pokemon', (req, res)=>{
 app.get("/pokemon/new", (req, res) => {
     res.render('new.ejs');
   });
+
+    // SHOW
+    app.get('/pokemon/:indexOfPokemonArray', (req, res) => {
+      res.render('show.ejs', { //second param must be an object
+          Pokemon: Pokemon[req.params.indexOfPokemonArray] //there will be a variable available inside the ejs file called fruit, its value is fruits[req.params.indexOfFruitsArray]
+      });
+    });    
   
   // CREATE
   app.post("/pokemon", (req, res) => {
-    // if (req.body.readyToEat === "on"){
-    //   req.body.readyToEat = true;
-    // } else {
-    //   req.body.readyToEat = false;
-    // }
     Pokemon.push(req.body);
     console.log(Pokemon);
     res.redirect("/pokemon");
   });
-  
-  // SHOW
-  app.get('/pokemon/:indexOfPokemonArray', (req, res) => {
-    res.render('show.ejs', { //second param must be an object
-        Pokemon: Pokemon[req.params.indexOfPokemonArray] //there will be a variable available inside the ejs file called fruit, its value is fruits[req.params.indexOfFruitsArray]
-    });
-  });    
-  
   // Products route for CURL lesson
   app.post('/products', (req, res)=>{
     console.log('Create route accessed!');
@@ -69,7 +67,7 @@ app.get("/pokemon/new", (req, res) => {
   })
   
   // EDIT 
-  app.get('/pokemon/:indexOfPokemonArray/edit', (req, res)=>{
+  app.get('/pokemon/edit', (req, res)=>{
     res.render('edit.ejs', {
       Pokemon: Pokemon[req.params.indexOfPokemonArray],
       index: req.params.indexOfPokemonArray

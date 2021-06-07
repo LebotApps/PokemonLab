@@ -1,23 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
- 
-   <% include ./partials/head.ejs %>
- 
-  <body>
-    <title>Pokedex</title>
-    <div class="body-overlay">
-      <!-- ============ HEADER ============ -->
-        <% include ./partials/header.ejs %>
-      <!-- ============ MAIN ============ -->
-      <main class="show-main">
-        <h1>Pokedex()</h1>
-        <h2><%= Pokemon.name %></h2>
-        <img src=<%= Pokemon.image + ".png"%>>
-        <h3>$<%= stats.attack %></h3>
-        <a href="/pokemon" class="back-btn">go back</a>
-      </main>
-      <!-- ============ FOOTER ============ -->
-      <% include ./partials/footer.ejs %>
-    </div>
-  </body>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Fruits App</title>
+    </head>
+    <body>
+        <h1>Pokemon Show Page</h1>
+       
+
+        <br><br>
+        <a href="/pokemon">Back to Pokedex</a>
+    </body>
 </html>

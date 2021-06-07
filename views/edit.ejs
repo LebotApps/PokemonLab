@@ -4,10 +4,15 @@
     <%- include(`./partials/head.ejs`);%>
     
     <title>Edit Your Pokemon</title>
+
 <body>
+  
+  <form action="/pokemon/edit<%= index %>?_method=PUT" method="POST"></form>
+
   <%console.log(fruit) %>
+  
   <h1>Edit Pokemon Page</h1>
-  <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
+  
     Name: <input type="text" name="name" value="<%= fruit.name %>"/><br />
     
 			
